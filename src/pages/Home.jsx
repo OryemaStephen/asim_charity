@@ -7,12 +7,12 @@ import LatestProjects from '../components/LatestProjects';
 
 const Home = () => {
   return (
-    <div className='w-full '>
-        <Welcome text="Welcome to Asim Charity Organization" />
-        <HomeIntro number={154} />
-        <LatestProjects />
-        <HomeVolunteerForm />
-        <Footer />
+    <div className="w-full ">
+      <Welcome text="Welcome to Asim Charity Organization" />
+      <HomeIntro number={154} />
+      <LatestProjects />
+      <HomeVolunteerForm />
+      <Footer />
     </div>
   );
 };

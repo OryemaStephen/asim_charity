@@ -12,7 +12,7 @@ function App() {
     <Router>
       <div className="font-overpass">
         <NavBar />
-        <div className='w-full space-x-4'>
+        <div className="w-full space-x-4">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />

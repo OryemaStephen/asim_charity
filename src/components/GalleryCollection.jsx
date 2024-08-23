@@ -22,7 +22,10 @@ const GalleryCollection = () => {
   return (
     <div className="grid grid-cols-1 gap-4 px-3 py-10 md:px-20 md:grid-cols-3">
       {images.map((image) => (
-        <div key={image.id} className="relative h-[300px] overflow-hidden group">
+        <div
+          key={image.id}
+          className="relative h-[300px] overflow-hidden group"
+        >
           <ModalImage
             small={image.src}
             large={image.src}

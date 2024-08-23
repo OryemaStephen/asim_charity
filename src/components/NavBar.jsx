@@ -28,7 +28,7 @@ const NavBar = () => {
     // Set a delay before making the navbar reappear
     const newTimeoutId = setTimeout(() => {
       setIsVisible(true);
-    }, 100); 
+    }, 100);
 
     setTimeoutId(newTimeoutId);
     setIsScrolled(currentScrollY > 80);
@@ -47,23 +47,29 @@ const NavBar = () => {
   }, [location]);
 
   const isActive = (path) => {
-    return location.pathname === path ? 'text-[#F7CA44]' : 'md:text-black text-white';
+    return location.pathname === path
+      ? 'text-[#F7CA44]'
+      : 'md:text-black text-white';
   };
 
   return (
     <nav
       className={`fixed top-0 z-10 w-full bg-black text-white px-3 md:px-20 py-6 transition-all duration-300 ease-in-out ${
-        isScrolled ? 'md:bg-white bg-black md:text-black text-white shadow-md' : 'bg-transparent'
+        isScrolled
+          ? 'md:bg-white bg-black md:text-black text-white shadow-md'
+          : 'bg-transparent'
       } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="container flex items-center justify-between mx-auto">
-        <div className="md:text-black text-white w-[10%] cursor-pointer">
-          <Link to="/" className='text-3xl font-thin'>ACO</Link>
+        <div className="text-white w-[10%] cursor-pointer">
+          <Link to="/" className="text-3xl font-thin">
+            ACO
+          </Link>
         </div>
         <div className="md:hidden w-[10%]">
           <button
             onClick={toggleMenu}
-            className="text-xl text-white md:text-white focus:outline-none"
+            className="text-xl text-white md:text-black focus:outline-none"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -72,35 +78,35 @@ const NavBar = () => {
           <ul className="items-center justify-between md:flex md:w-full md:space-x-6">
             <li
               className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
-                '/'
+                '/',
               )}`}
             >
               <Link to="/">Home</Link>
             </li>
             <li
               className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
-                '/services'
+                '/services',
               )}`}
             >
               <Link to="/services">Services</Link>
             </li>
             <li
               className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
-                '/gallery'
+                '/gallery',
               )}`}
             >
               <Link to="/gallery">Gallery</Link>
             </li>
             <li
               className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
-                '/about'
+                '/about',
               )}`}
             >
               <Link to="/about">About</Link>
             </li>
             <li
               className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
-                '/contact'
+                '/contact',
               )}`}
             >
               <Link to="/contact">Contact</Link>
@@ -110,11 +116,14 @@ const NavBar = () => {
       </div>
       <div
         className={`${
-          isOpen ? 'block' : 'hidden'
+          isOpen ? 'block bg-black text-white' : 'hidden'
         } md:hidden bg-black text-white w-full absolute top-full left-0 transition-all duration-300 ease-in-out`}
       >
         <ul className="flex flex-col p-4 space-y-4 text-white">
-          <li onClick={toggleMenu} className={`cursor-pointer ${isActive('/')}`}>
+          <li
+            onClick={toggleMenu}
+            className={`cursor-pointer ${isActive('/')}`}
+          >
             <Link to="/">Home</Link>
           </li>
           <li
