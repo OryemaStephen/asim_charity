@@ -61,7 +61,7 @@ const NavBar = () => {
       } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="container flex items-center justify-between mx-auto">
-        <div className="text-white w-[10%] cursor-pointer">
+        <div className="text-white md:text-black w-[10%] cursor-pointer">
           <Link to="/" className="text-3xl font-thin">
             ACO
           </Link>
