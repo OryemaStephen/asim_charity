@@ -42,6 +42,10 @@ const NavBar = () => {
     };
   }, [timeoutId]);
 
+  useEffect(() => {
+    // Ensure the active class is updated on location change
+  }, [location]);
+
   const isActive = (path) => {
     return location.pathname === path ? 'text-[#F7CA44]' : 'md:text-black text-white';
   };
@@ -67,35 +71,35 @@ const NavBar = () => {
         <div className="hidden md:w-[50%] mx-5 md:flex md:items-center">
           <ul className="items-center justify-between md:flex md:w-full md:space-x-6">
             <li
-              className={`transition-all duration-300 ease-in-out text-white cursor-pointer hover:text-gray-400 ${isActive(
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
                 '/'
               )}`}
             >
               <Link to="/">Home</Link>
             </li>
             <li
-              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-gray-400 ${isActive(
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
                 '/services'
               )}`}
             >
               <Link to="/services">Services</Link>
             </li>
             <li
-              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-gray-400 ${isActive(
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
                 '/gallery'
               )}`}
             >
               <Link to="/gallery">Gallery</Link>
             </li>
             <li
-              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-gray-400 ${isActive(
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
                 '/about'
               )}`}
             >
               <Link to="/about">About</Link>
             </li>
             <li
-              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-gray-400 ${isActive(
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-[#F7CA44] ${isActive(
                 '/contact'
               )}`}
             >
