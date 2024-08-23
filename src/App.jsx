@@ -1,26 +1,28 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Gallery from './pages/Gallery';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className='font-poppins'>
-      <NavBar />
-      <div id="home" className="h-screen flex items-center justify-center bg-blue-500 text-white">
-        <h1 className="text-4xl">Welcome to Home</h1>
+    <Router>
+      <div className="font-poppins">
+        <NavBar />
+        <div className='w-full space-x-4'>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
       </div>
-      <div id="services" className="h-screen flex items-center justify-center bg-yellow-500 text-white">
-        <h1 className="text-4xl">Our Services</h1>
-      </div>
-      <div id="gallery" className="h-screen flex items-center justify-center bg-yellow-500 text-white">
-        <h1 className="text-4xl">Our Gallery</h1>
-      </div>
-      <div id="about" className="h-screen flex items-center justify-center bg-green-500 text-white">
-        <h1 className="text-4xl">About Us</h1>
-      </div>
-      <div id="contact" className="h-screen flex items-center justify-center bg-red-500 text-white">
-        <h1 className="text-4xl">Contact Us</h1>
-      </div>
-    </div>
+    </Router>
   );
 }
 

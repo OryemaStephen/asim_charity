@@ -1,57 +1,60 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedSection, setSelectedSection] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [timeoutId, setTimeoutId] = useState(null);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setSelectedSection(id);
-      setIsOpen(false);
-    }
-  };
-
   const handleScroll = () => {
-    const sections = ['home', 'services', 'gallery', 'about', 'contact'];
-    let currentSection = '';
+    const currentScrollY = window.scrollY;
 
-    sections.forEach((sectionId) => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-          currentSection = sectionId;
-        }
-      }
-    });
+    if (timeoutId) {
+      clearTimeout(timeoutId); // Clear the previous timeout to prevent multiple triggers
+    }
 
-    setSelectedSection(currentSection);
+    if (currentScrollY > 30 && currentScrollY < 70) {
+      // Hide navbar after scrolling a little down
+      setIsVisible(false);
+    }
+
+    // Set a delay before making the navbar reappear
+    const newTimeoutId = setTimeout(() => {
+      setIsVisible(true);
+    }, 100); 
+
+    setTimeoutId(newTimeoutId);
+    setIsScrolled(currentScrollY > 80);
   };
 
   useEffect(() => {
-    // Set initial selected section based on scroll position
-    handleScroll();
-    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
-    // Clean up event listener on component unmount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
+  }, [timeoutId]);
+
+  const isActive = (path) => {
+    return location.pathname === path ? 'text-gray-400' : 'md:text-black text-white';
+  };
 
   return (
-    <nav className="bg-white font-poppins p-4 fixed w-full z-10 top-0 transition-all duration-300 ease-in-out">
-      <div className="container mx-auto flex justify-between items-center">
-        <div
-          className="text-black w-[10%] text-xl font-bold cursor-pointer"
-          onClick={() => scrollToSection('home')}
-        >
-          ACO
+    <nav
+      className={`fixed top-0 z-10 w-full px-4 py-6 transition-all duration-300 ease-in-out ${
+        isScrolled ? 'md:bg-white bg-black md:text-black text-white shadow-md' : 'bg-transparent'
+      } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+    >
+      <div className="container flex items-center justify-between mx-auto">
+        <div className="md:text-black text-white w-[10%] text-xl font-bold cursor-pointer">
+          <Link to="/">ACO</Link>
         </div>
         <div className="md:hidden w-[10%]">
           <button
@@ -62,43 +65,78 @@ const NavBar = () => {
           </button>
         </div>
         <div className="hidden md:w-[50%] mx-5 md:flex md:items-center">
-          <ul className="md:flex md:w-full font-bold justify-between items-center md:space-x-6">
-            {['home', 'services', 'gallery', 'about', 'contact'].map((section) => (
-              <li
-                key={section}
-                className={`cursor-pointer transition-all duration-300 ease-in-out ${
-                  selectedSection === section
-                    ? 'text-gray-400'
-                    : 'text-black hover:text-gray-400'
-                }`}
-              >
-                <div onClick={() => scrollToSection(section)}>
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </div>
-              </li>
-            ))}
+          <ul className="items-center justify-between md:flex md:w-full md:space-x-6">
+            <li
+              className={`transition-all duration-300 ease-in-out text-white cursor-pointer hover:text-gray-400 ${isActive(
+                '/'
+              )}`}
+            >
+              <Link to="/">Home</Link>
+            </li>
+            <li
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-gray-400 ${isActive(
+                '/services'
+              )}`}
+            >
+              <Link to="/services">Services</Link>
+            </li>
+            <li
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-gray-400 ${isActive(
+                '/gallery'
+              )}`}
+            >
+              <Link to="/gallery">Gallery</Link>
+            </li>
+            <li
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-gray-400 ${isActive(
+                '/about'
+              )}`}
+            >
+              <Link to="/about">About</Link>
+            </li>
+            <li
+              className={`transition-all duration-300 ease-in-out cursor-pointer hover:text-gray-400 ${isActive(
+                '/contact'
+              )}`}
+            >
+              <Link to="/contact">Contact</Link>
+            </li>
           </ul>
         </div>
       </div>
       <div
         className={`${
           isOpen ? 'block' : 'hidden'
-        } md:hidden bg-white w-full absolute top-full left-0 transition-all duration-300 ease-in-out`}
+        } md:hidden bg-black text-white w-full absolute top-full left-0 transition-all duration-300 ease-in-out`}
       >
-        <ul className="flex flex-col space-y-4 p-4">
-          {['home', 'services', 'gallery', 'about', 'contact'].map((section) => (
-            <li
-              key={section}
-              onClick={() => scrollToSection(section)}
-              className={`cursor-pointer transition-all duration-300 ease-in-out ${
-                selectedSection === section
-                  ? 'text-gray-400'
-                  : 'text-black hover:text-gray-400'
-              }`}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-            </li>
-          ))}
+        <ul className="flex flex-col p-4 space-y-4 text-white bg-black">
+          <li onClick={toggleMenu} className={`cursor-pointer ${isActive('/')}`}>
+            <Link to="/">Home</Link>
+          </li>
+          <li
+            onClick={toggleMenu}
+            className={`cursor-pointer ${isActive('/services')}`}
+          >
+            <Link to="/services">Services</Link>
+          </li>
+          <li
+            onClick={toggleMenu}
+            className={`cursor-pointer ${isActive('/gallery')}`}
+          >
+            <Link to="/gallery">Gallery</Link>
+          </li>
+          <li
+            onClick={toggleMenu}
+            className={`cursor-pointer ${isActive('/about')}`}
+          >
+            <Link to="/about">About</Link>
+          </li>
+          <li
+            onClick={toggleMenu}
+            className={`cursor-pointer ${isActive('/contact')}`}
+          >
+            <Link to="/contact">Contact</Link>
+          </li>
         </ul>
       </div>
     </nav>
