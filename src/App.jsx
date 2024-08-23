@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <Router>
-      <div className="font-poppins">
+      <div className="font-overpass">
         <NavBar />
         <div className='w-full space-x-4'>
           <Routes>

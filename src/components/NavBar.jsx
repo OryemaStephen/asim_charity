@@ -43,23 +43,23 @@ const NavBar = () => {
   }, [timeoutId]);
 
   const isActive = (path) => {
-    return location.pathname === path ? 'text-gray-400' : 'md:text-black text-white';
+    return location.pathname === path ? 'text-[#F7CA44]' : 'md:text-black text-white';
   };
 
   return (
     <nav
-      className={`fixed top-0 z-10 w-full px-4 py-6 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 z-10 w-full bg-black text-white px-3 md:px-20 py-6 transition-all duration-300 ease-in-out ${
         isScrolled ? 'md:bg-white bg-black md:text-black text-white shadow-md' : 'bg-transparent'
       } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="container flex items-center justify-between mx-auto">
-        <div className="md:text-black text-white w-[10%] text-xl font-bold cursor-pointer">
-          <Link to="/">ACO</Link>
+        <div className="md:text-black text-white w-[10%] cursor-pointer">
+          <Link to="/" className='text-3xl font-thin'>ACO</Link>
         </div>
         <div className="md:hidden w-[10%]">
           <button
             onClick={toggleMenu}
-            className="text-black focus:outline-none"
+            className="text-xl text-white md:text-white focus:outline-none"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -109,7 +109,7 @@ const NavBar = () => {
           isOpen ? 'block' : 'hidden'
         } md:hidden bg-black text-white w-full absolute top-full left-0 transition-all duration-300 ease-in-out`}
       >
-        <ul className="flex flex-col p-4 space-y-4 text-white bg-black">
+        <ul className="flex flex-col p-4 space-y-4 text-white">
           <li onClick={toggleMenu} className={`cursor-pointer ${isActive('/')}`}>
             <Link to="/">Home</Link>
           </li>
