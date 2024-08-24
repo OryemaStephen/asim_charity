@@ -57,19 +57,21 @@ const NavBar = () => {
       className={`fixed top-0 z-10 w-full bg-black text-white px-3 md:px-20 py-6 transition-all duration-300 ease-in-out ${
         isScrolled
           ? 'md:bg-white bg-black md:text-black text-white shadow-md'
-          : 'bg-transparent'
+          : 'bg-white text-black'
       } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="container flex items-center justify-between mx-auto">
-        <div className="text-white md:text-black w-[10%] cursor-pointer">
+        <div className={`${isScrolled? 'text-white md:text-black'
+          : 'text-black'} w-[10%] cursor-pointer`}>
           <Link to="/" className="text-3xl font-thin">
             ACO
           </Link>
         </div>
-        <div className="md:hidden w-[10%]">
+        <div className={`md:hidden w-[10%] ${isScrolled? 'text-white'
+          : 'text-black'}`}>
           <button
             onClick={toggleMenu}
-            className="text-xl text-white md:text-black focus:outline-none"
+            className="text-xl focus:outline-none"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>

@@ -28,7 +28,7 @@ const HomeVolunteerForm = () => {
               className="w-full px-3 py-1 italic text-white placeholder-white bg-transparent border-2 border-white outline-none"
             />
             <input
-              type="text"
+              type="email"
               placeholder="Enter your email ..."
               className="w-full px-3 py-1 my-5 italic text-white placeholder-white bg-transparent border-2 border-white outline-none"
             />
