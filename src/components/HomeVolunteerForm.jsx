@@ -1,4 +1,5 @@
 import React from 'react';
+import image from '../assets/6.jpg';
 
 const HomeVolunteerForm = () => {
   return (
@@ -13,11 +14,11 @@ const HomeVolunteerForm = () => {
         <div className="relative w-full h-full overflow-hidden">
           <img
             className="object-cover object-center w-full h-full rounded-lg"
-            src="https://www.shutterstock.com/image-photo/international-day-charity-concept-human-600nw-1033233823.jpg"
+            src={image}
             alt="Charity tree"
           />
         </div>
-        <div className="w-full bg-[#F7CA44] bg-opacity-40 pb-4 px-4 text-start">
+        <div className="w-full h-full rounded-lg bg-[#F7CA44] bg-opacity-40 pt-4 p-4 text-start">
           <h3 className="w-full pb-5 text-2xl font-bold text-white capitalize text-start">
             Volunteer with us
           </h3>

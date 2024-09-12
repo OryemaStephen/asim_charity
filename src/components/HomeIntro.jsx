@@ -36,7 +36,7 @@ const HomeIntro = ({ number: targetNumber }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check immediately in case it's already in view
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [targetNumber]);
@@ -46,7 +46,7 @@ const HomeIntro = ({ number: targetNumber }) => {
       <div className="bg-[#F7CA44] px-10 py-20" ref={ref}>
         <p className="text-lg">Served over</p>
         <p className="pt-3 text-6xl font-semibold">{number}</p>
-        <p className="py-3 text-lg">in Uganda</p>
+        <p className="py-3 text-lg">children in Uganda</p>
         <Link
           to="/services"
           className="px-4 py-2 text-xl text-black capitalize transition-shadow duration-300 bg-white shadow-lg hover:shadow-xl"

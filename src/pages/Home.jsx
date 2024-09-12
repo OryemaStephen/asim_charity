@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="w-full ">
       <Welcome text="Welcome to Asim Charity Organization" />
-      <HomeIntro number={154} />
+      <HomeIntro number={1500} />
       <LatestProjects />
       <HomeVolunteerForm />
       <Footer />
