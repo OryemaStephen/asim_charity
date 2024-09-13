@@ -30,15 +30,15 @@ import image19 from '../assets/20.jpg';
 
 const GalleryCollection = () => {
   const images = [
-    { id: 1, src: meal1, alt: 'Meals for the needy' },
+    { id: 1, src: image3, alt: 'Meals for the needy' },
     { id: 2, src: meal2, alt: 'Meals for the needy' },
-    { id: 4, src: meal3, alt: 'Meals for the needy' },
+    { id: 4, src: image17, alt: 'Meals for the needy' },
     { id: 5, src: qorant, alt: 'Quran studies program'},
     { id: 6, src: drink, alt: 'Meals for the needy' },
     { id: 7, src: image, alt: 'Meals for the needy' },
     { id: 8, src: image1, alt: 'Meals for the needy' },
     { id: 9, src: image2, alt: 'Meals for the needy' },
-    { id: 10, src: image3, alt: 'Meals for the needy' },
+    { id: 10, src: meal1, alt: 'Meals for the needy' },
     { id: 11, src: image4, alt: 'Meals for the needy' },
     { id: 12, src: image5, alt: 'Meals for the needy' },
     { id: 13, src: image6, alt: 'Meals for the needy' },
@@ -53,7 +53,7 @@ const GalleryCollection = () => {
     { id: 22, src: image14, alt: 'Meals for the needy' },
     { id: 23, src: image15, alt: 'Meals for the needy' },
     { id: 24, src: image16, alt: 'Meals for the needy' },
-    { id: 25, src: image17, alt: 'Meals for the needy' },
+    { id: 25, src: meal3, alt: 'Meals for the needy' },
     { id: 26, src: image18, alt: 'Meals for the needy' },
     { id: 27, src: image19, alt: 'Meals for the needy' },
   ];

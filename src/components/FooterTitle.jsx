@@ -38,7 +38,9 @@ const FooterTitle = () => {
           <span>
             <MdMailOutline />
           </span>
-          <span>Mbale City, Uganda, East Africa</span>
+          <a href="mailto:asimcharityorg@gmail.com" target="_blank" rel="noopener noreferrer">
+            asimcharityorg@gmail.com
+          </a>
         </p>
       </div>
     </div>
