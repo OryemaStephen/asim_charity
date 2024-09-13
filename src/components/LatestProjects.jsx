@@ -70,7 +70,7 @@ const LatestProjects = () => {
           {projects.concat(projects).map((project, index) => (
             <div
               key={index}
-              className="min-w-[33%] sm:min-w-[50%] lg:min-w-[33.33%] mx-auto px-2 md:px-4"
+              className="min-w-[33%] sm:w-[50%] lg:min-w-[33.33%] mx-auto px-2 md:px-4"
             >
               <div className="bg-white rounded-lg shadow-lg">
                 <div className="w-full relative overflow-hidden h-[300px]">

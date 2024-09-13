@@ -59,7 +59,7 @@ const GalleryCollection = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 gap-4 px-3 py-10 md:px-20 md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 px-3 py-10 md:px-10 md:grid-cols-3">
       {images.map((image) => (
         <div
           key={image.id}
