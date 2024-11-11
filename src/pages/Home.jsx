@@ -4,7 +4,8 @@ import HomeIntro from '../components/HomeIntro';
 import HomeVolunteerForm from '../components/HomeVolunteerForm';
 import Footer from '../components/Footer';
 import LatestProjects from '../components/LatestProjects';
-import background from '../assets/6.jpg'
+import background from '../assets/6.jpg';
+import Donate from '../components/Donate';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Welcome text="Welcome to Asim Charity Organization" image={background} />
       <HomeIntro number={1500} />
       <LatestProjects />
+      <Donate />
       <HomeVolunteerForm />
       <Footer />
     </div>

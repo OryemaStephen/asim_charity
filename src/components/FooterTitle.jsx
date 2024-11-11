@@ -28,17 +28,27 @@ const FooterTitle = () => {
           </span>
           <span>Mbale City, Uganda, East Africa</span>
         </p>
-        <p className="flex text-[#F7CA44] items-center gap-5 py-3">
-          <span>
+        <p className="flex items-center gap-5 py-3">
+          <span className="text-[#F7CA44]">
             <FaPhoneAlt />
           </span>
-          <span>+256 777 777777</span>
+          <a
+            href="tel:+256740212281"
+            className="text-[#F7CA44] hover:underline"
+          >
+            +256740212281
+          </a>
         </p>
-        <p className="flex text-[#F7CA44] items-center gap-5">
-          <span>
+        <p className="flex items-center gap-5">
+          <span className="text-[#F7CA44]">
             <MdMailOutline />
           </span>
-          <a href="mailto:asimcharityorg@gmail.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="mailto:asimcharityorg@gmail.com"
+            className="text-[#F7CA44] hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             asimcharityorg@gmail.com
           </a>
         </p>

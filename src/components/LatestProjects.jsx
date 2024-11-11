@@ -56,7 +56,7 @@ const LatestProjects = () => {
   };
 
   return (
-    <div className="relative overflow-hidden px-5 py-10 bg-gray-100">
+    <div className="relative px-5 py-10 overflow-hidden bg-gray-100">
       <h2 className="pb-3 text-3xl font-bold text-center">Latest Projects</h2>
       <p className="pb-10 text-lg text-center">
         Some of our latest projects for the community
@@ -83,9 +83,7 @@ const LatestProjects = () => {
                 <h3 className="px-3 pt-3 mb-3 text-xl font-semibold">
                   {project.title}
                 </h3>
-                <p className="px-3 mb-5 text-gray-600">
-                  {project.description}
-                </p>
+                <p className="px-3 pb-5 text-gray-600">{project.description}</p>
               </div>
             </div>
           ))}
