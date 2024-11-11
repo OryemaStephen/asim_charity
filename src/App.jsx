@@ -10,7 +10,7 @@ import ContactPage from './pages/ContactPage';
 function App() {
   return (
     <Router>
-      <div className="font-overpass">
+      <div className="font-montserrat">
         <NavBar />
         <div className="w-full space-x-4">
           <Routes>

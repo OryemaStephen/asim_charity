@@ -23,7 +23,7 @@ const Donate = () => {
               <h3 className="text-lg font-bold">Bank Account</h3>
               <p>Bank Name: Centenary Bank Uganda</p>
               <p>Account Name: Asim Charity Organization</p>
-              <p>Account Number: 123456789</p>
+              <p className="font-semibold">Account Number: 123456789</p>
               <p>SWIFT Code: CERBUGKA</p>
             </div>
 
@@ -31,7 +31,9 @@ const Donate = () => {
             <div className="grid-cols-1 text-center">
               <h3 className="text-lg font-bold">Mobile Money</h3>
               <p>Service Provider: AIRTEL</p>
-              <p>Mobile Money Number: +256740212281</p>
+              <p className="font-semibold">
+                Mobile Money Number: +256740212281
+              </p>
               <p>Reference: Asim Charity Organization</p>
             </div>
           </div>

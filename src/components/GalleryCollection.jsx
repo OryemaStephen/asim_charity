@@ -33,7 +33,7 @@ const GalleryCollection = () => {
     { id: 1, src: image3, alt: 'Meals for the needy' },
     { id: 2, src: meal2, alt: 'Meals for the needy' },
     { id: 4, src: image17, alt: 'Meals for the needy' },
-    { id: 5, src: qorant, alt: 'Quran studies program'},
+    { id: 5, src: qorant, alt: 'Quran studies program' },
     { id: 6, src: drink, alt: 'Meals for the needy' },
     { id: 7, src: image, alt: 'Meals for the needy' },
     { id: 8, src: image1, alt: 'Meals for the needy' },
@@ -59,7 +59,7 @@ const GalleryCollection = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 gap-4 px-3 py-10 md:px-10 md:grid-cols-3">
+    <div className="grid grid-cols-1 w-11/12 mx-auto gap-4 px-3 py-10 md:px-10 md:grid-cols-3">
       {images.map((image) => (
         <div
           key={image.id}
